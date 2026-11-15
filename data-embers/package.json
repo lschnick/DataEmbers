@@ -12,7 +12,8 @@
     "next": "16.4.6",
     "papaparse": "^5.7.1",
     "react": "19.3.0",
-    "react-dom": "19.3.0"
+    "react-dom": "19.3.0",
+    "sqlite": "^5.1.1"
   },
   "devDependencies": {
     "@tailwindcss/turbopack": "4.3.3",
