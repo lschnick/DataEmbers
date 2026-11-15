@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "csv": "^6.6.4",
+    "d3": "^7.9.2",
     "csv-parse": "^7.0.3",
     "next": "16.4.6",
     "papaparse": "^5.7.1",
@@ -20,6 +21,7 @@
   },
   "devDependencies": {
     "@tailwindcss/turbopack": "4.3.3",
+    "@types/d3": "^7.4.3",
     "@types/node": "^26.6.6",
     "@types/papaparse": "^5.5.2",
     "@types/react": "^19",
