@@ -10,15 +10,17 @@
   },
   "dependencies": {
     "csv": "^6.6.4",
+    "csv-parse": "^7.0.3",
     "next": "16.4.6",
     "papaparse": "^5.7.1",
     "react": "19.3.0",
     "react-dom": "19.3.0",
-    "sqlite": "^5.1.1"
+    "sqlite": "^5.1.1",
+    "sqlite3": "^6.0.1"
   },
   "devDependencies": {
     "@tailwindcss/turbopack": "4.3.3",
-    "@types/node": "^20",
+    "@types/node": "^26.6.6",
     "@types/papaparse": "^5.5.2",
     "@types/react": "^19",
     "@types/react-dom": "^19",
