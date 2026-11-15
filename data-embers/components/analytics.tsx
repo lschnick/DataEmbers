@@ -23,7 +23,12 @@ insert.run(2, 30);
 
 
 function averageTimeline(db: DatabaseSync) {
-    const array = db.prepare('SELECT month, COUNT(*) as [num fires], AVG(frp) as [avg frp] GROUP BY month').all();
+    const array = db.prepare('SELECT month, COUNT(*) as numFires, AVG(frp) as avgFrp GROUP BY month').all();
+    return array;
+}
+
+function timeline(db: DatabaseSync) {
+    const array = db.prepare('SELECT year, COUNT(*) as numFires, AVG(frp) as avgFrp GROUP BY year').all();
     return array;
 }
 
