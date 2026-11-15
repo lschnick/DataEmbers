@@ -1,6 +1,10 @@
 "use client";
 import { useEffect, useState } from "react";
 import Papa from "papaparse";
+import fs from "node:fs";
+import { parse } from "csv-parse";
+import { Database } from "node:sqlite"
+import { create } from "node:domain";
 
 interface CsvRow {
   lattitude: number;
@@ -49,6 +53,43 @@ export default function ViirsTable() {
 
     void fetchViirs();
   }, []);
+
+  function createTableAndDatabase() {
+    const db = new Database(':memory:');
+
+    db.exec(`
+      CREATE TABLE data(
+      latitude INTEGER,
+      longitude INTEGER,
+      brightness INTEGER,
+      year INTEGER,
+      month INTEGER,
+      day INTEGER,
+      time INTEGER,
+      confidence TEXT,
+      frp INTEGER,
+      daynight TEXT
+      )
+    `);
+
+    return db;
+  }
+
+  function parseViirs(db: Database) {
+    fs.createReadStream("/api")
+      .pipe(parse({delimiter: ",", from_line: 2}))
+      .on("data", function (row) {
+        db.serialize(function () {
+          db.run(
+            'INSERT INTO data VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+            [row[0], row[1], (row[2] + row[12])/2, parseInt(row[5].substring(0, 4)), parseInt(row[5].substring(5, 7)), parseInt(row[5].substring(8)), row[6], row[9], row[12], row[13]]
+          );
+        });
+      });
+  }
+
+  const db = createTableAndDatabase();
+  parseViirs(db);
 
   return (
     <>
