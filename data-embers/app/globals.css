@@ -1,6 +1,15 @@
 @import "tailwindcss";
 
-Navigation .navbar {
+* {
+  box-sizing: border-box;
+}
+
+.page-title {
+  font-size: clamp(32px, 6vw, 48px);
+}
+
+/* Navigation */
+.navbar {
   position: sticky;
   top: 0;
   z-index: 10;
@@ -11,8 +20,9 @@ Navigation .navbar {
   gap: 12px;
   width: 100%;
   padding: 16px 20px;
-  background-color: black;
+  background-color: rgb(53, 19, 19);
   color: white;
+  height: 60px;
 }
 
 .logo {
@@ -20,6 +30,8 @@ Navigation .navbar {
 }
 
 .nav-list {
+  font-family: Georgia, serif;
+
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -29,8 +41,63 @@ Navigation .navbar {
   list-style: none;
 }
 
+.form-panel {
+  position: fixed;
+  top: 60px;
+  right: 0;
+  width: 30%;
+  height: 100vh;
+  min-width: 280px;
+  z-index: 1;
+  background-color: #f8f9fa;
+  border-left: 1px solid #dee2e6;
+  padding: 1.5rem;
+  overflow-y: auto;
+  box-shadow: -4px 0 12px rgba(0, 0, 0, 0.05);
+}
 .calendar-form {
+  z-index: 1;
+  flex-direction: column;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: right;
+  gap: 12px;
+  margin: 5px;
+}
+.form-entry,
+input[type="date"] {
+  z-index: 1;
+  width: 100%;
+  padding: 10px 12px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: #212529;
+  background-color: #ffffff;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s 0.05px;
+}
+
+.form-entry:focus,
+input[type="date"]:focus {
+  outline: none;
+  border-color: #4dabf7;
+  box-shadow: 0 0 0 3px rgba(77, 171, 247, 0.2);
+}
+
+.form-submit {
+  z-index: 1;
+  width: 100%;
+  margin-top: 8px;
+  padding: 10px 16px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #212529;
+  background-color: #ffffff;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  cursor: pointer;
+  transition:
+    background-color 0.2s,
+    transform 0.1s;
 }
