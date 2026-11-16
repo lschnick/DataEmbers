@@ -101,3 +101,11 @@ input[type="date"]:focus {
     background-color 0.2s,
     transform 0.1s;
 }
+
+.chart-data
+{
+  max-height: 200px;
+  display: flex;
+  flex-wrap: column;
+  
+}

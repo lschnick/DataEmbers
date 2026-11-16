@@ -26,7 +26,7 @@ export async function GET() {
     }
 
     const csvText = await response.text();
-    console.log(csvText);
+    //console.log(csvText);
 
     return new NextResponse(csvText, {
       status: 200,
