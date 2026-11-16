@@ -1,6 +1,6 @@
 import CalendarForm from "@/components/CalendarForm";
 import Navbar from "@/components/Navbar";
-import ViirsTable from "@/components/ViirsIntake";
+//import ViirsTable from "@/components/ViirsIntake";
 
 export default function Calendar() {
   return (
@@ -9,7 +9,7 @@ export default function Calendar() {
         <Navbar />
         <h1>Calendar</h1>
         <CalendarForm />
-        <ViirsTable />
+        {/* <ViirsTable /> */}
       </main>
     </section>
   );

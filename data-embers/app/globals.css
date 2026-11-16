@@ -34,3 +34,11 @@ Navigation .navbar {
   flex-wrap: wrap;
   justify-content: right;
 }
+
+.chart-data
+{
+  max-height: 200px;
+  display: flex;
+  flex-wrap: column;
+  
+}
